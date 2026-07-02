@@ -12,7 +12,7 @@ export default function Hero({ onCtaclick, onExploreServices }: HeroProps) {
   const droplets = Array.from({ length: 8 });
 
   return (
-    <header className="relative min-h-[90vh] flex items-center bg-slate-950 text-white overflow-hidden py-20 px-4 hero-container">
+    <header className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-brand-primary to-brand-secondary text-white overflow-hidden py-20 px-4 hero-container">
       {/* Fix: Add the missing H1 tag for the main brand title */}
       <h1 className="sr-only">Kittu Car Washing - Premium Detailing Station Patna Bihar</h1>
 
@@ -35,16 +35,16 @@ export default function Hero({ onCtaclick, onExploreServices }: HeroProps) {
             delay: i * 1.5,
             ease: 'linear',
           }}
-          className="absolute w-2 h-2 rounded-full bg-sky-400 pointer-events-none blur-[1px]"
+          className="absolute w-2 h-2 rounded-full bg-white/40 pointer-events-none blur-[1px]"
         />
       ))}
 
       {/* Radiant Glowing Orbs */}
-      <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-white/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] bg-white/10 rounded-full blur-[120px] pointer-events-none" />
 
       {/* Grid Pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Texts Info Left */}
@@ -53,7 +53,7 @@ export default function Hero({ onCtaclick, onExploreServices }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-500/10 border border-sky-400/20 text-sky-400 text-xs font-semibold uppercase tracking-wider top-rating-tag"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 border border-white/30 text-white text-xs font-semibold uppercase tracking-wider top-rating-tag"
           >
             <Sparkles className="w-3.5 h-3.5 animate-spin" />
             <span>Top-Rated Detailing Station in Patna</span>
@@ -67,7 +67,7 @@ export default function Hero({ onCtaclick, onExploreServices }: HeroProps) {
               className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none text-white font-display main-headline"
             >
               Bringing Showroom <br />
-              <span className="gradient-text bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-400 font-black">
+              <span className="gradient-text bg-gradient-to-r from-yellow-300 via-amber-200 to-orange-300 font-black">
                 Gloss & Protection
               </span><br />
               Back to Your Ride
@@ -77,7 +77,7 @@ export default function Hero({ onCtaclick, onExploreServices }: HeroProps) {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-slate-300 text-sm sm:text-base md:text-lg max-w-xl leading-relaxed"
+              className="text-white/90 text-sm sm:text-base md:text-lg max-w-xl leading-relaxed"
             >
               Premium foam baths, 120°C active steam cabin disinfection, and ultra-durable hybrid ceramic coatings. Experience professional, scratch-free care at {BUSINESS_INFO.name}.
             </motion.p>
@@ -88,14 +88,14 @@ export default function Hero({ onCtaclick, onExploreServices }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="flex flex-wrap gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-400"
+            className="flex flex-wrap gap-x-6 gap-y-2 text-xs sm:text-sm text-white/85"
           >
             <div className="flex items-center gap-1.5">
-              <MapPin className="w-4 h-4 text-sky-400 shrink-0" />
+              <MapPin className="w-4 h-4 text-white shrink-0" />
               <span>Kankarbagh Main Road, Patna</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Shield className="w-4 h-4 text-sky-400 shrink-0" />
+              <Shield className="w-4 h-4 text-white shrink-0" />
               <span>pH-Neutral Soft Water (TDS &lt; 100)</span>
             </div>
           </motion.div>
@@ -107,21 +107,27 @@ export default function Hero({ onCtaclick, onExploreServices }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <button
+            <motion.button
               onClick={onCtaclick}
-              className="px-8 py-4 rounded-xl bg-gradient-to-r from-sky-400 to-blue-600 hover:from-sky-500 hover:to-blue-700 text-white font-extrabold text-base transition-all shadow-lg shadow-sky-500/25 flex items-center justify-center gap-2 group active:scale-95 cursor-pointer"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="px-8 py-4 rounded-xl bg-brand-cta hover:bg-[#ea580c] text-white font-extrabold text-base transition-all shadow-lg shadow-brand-cta/30 flex items-center justify-center gap-2 group cursor-pointer"
             >
-              <Calendar className="w-5 h-5 text-sky-100" />
+              <Calendar className="w-5 h-5 text-orange-100" />
               <span>Schedule Service Online</span>
-              <ArrowRight className="w-4 h-4 text-sky-200 group-hover:translate-x-1.5 transition-transform" />
-            </button>
+              <ArrowRight className="w-4 h-4 text-orange-200 group-hover:translate-x-1.5 transition-transform" />
+            </motion.button>
 
-            <button
+            <motion.button
               onClick={onExploreServices}
-              className="px-8 py-4 rounded-xl border border-slate-700 hover:border-slate-500 hover:bg-slate-900/50 text-slate-200 hover:text-white font-bold text-base transition-all flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
+              whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="px-8 py-4 rounded-xl border border-white/30 hover:border-white text-white font-bold text-base transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Explore Services & Pricing</span>
-            </button>
+            </motion.button>
           </motion.div>
 
           {/* Stats Bar */}
@@ -129,19 +135,19 @@ export default function Hero({ onCtaclick, onExploreServices }: HeroProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="grid grid-cols-3 gap-4 pt-8 border-t border-slate-800 max-w-lg"
+            className="grid grid-cols-3 gap-4 pt-8 border-t border-white/20 max-w-lg"
           >
             <div>
-              <span className="text-2xl sm:text-3xl font-black text-sky-400 block tracking-tight">10+ Yrs</span>
-              <span className="text-[10px] sm:text-xs text-slate-400 font-semibold uppercase tracking-wider mt-0.5 block">Experience</span>
+              <span className="text-2xl sm:text-3xl font-black text-white block tracking-tight">10+ Yrs</span>
+              <span className="text-[10px] sm:text-xs text-white/80 font-semibold uppercase tracking-wider mt-0.5 block">Experience</span>
             </div>
             <div>
-              <span className="text-2xl sm:text-3xl font-black text-sky-400 block tracking-tight">1 Lakh+</span>
-              <span className="text-[10px] sm:text-xs text-slate-400 font-semibold uppercase tracking-wider mt-0.5 block">Cars Washed</span>
+              <span className="text-2xl sm:text-3xl font-black text-white block tracking-tight">1 Lakh+</span>
+              <span className="text-[10px] sm:text-xs text-white/80 font-semibold uppercase tracking-wider mt-0.5 block">Cars Washed</span>
             </div>
             <div>
-              <span className="text-2xl sm:text-3xl font-black text-sky-400 block tracking-tight">4.9★</span>
-              <span className="text-[10px] sm:text-xs text-slate-400 font-semibold uppercase tracking-wider mt-0.5 block">Google Rating</span>
+              <span className="text-2xl sm:text-3xl font-black text-white block tracking-tight">4.9★</span>
+              <span className="text-[10px] sm:text-xs text-white/80 font-semibold uppercase tracking-wider mt-0.5 block">Google Rating</span>
             </div>
           </motion.div>
         </div>
@@ -152,10 +158,10 @@ export default function Hero({ onCtaclick, onExploreServices }: HeroProps) {
             initial={{ opacity: 0, scale: 0.9, rotate: 1 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-800 aspect-[4/3] bg-slate-900"
+            className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/3] bg-white/5"
           >
             {/* Pressure wash spray overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-transparent pointer-events-none z-10" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent pointer-events-none z-10" />
             <img
               src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=800"
               alt="Gleaming Premium Lexus LS 500h Detailing Kittu Wash Patna"
@@ -164,9 +170,9 @@ export default function Hero({ onCtaclick, onExploreServices }: HeroProps) {
             />
 
             {/* Glowing Tag */}
-            <div className="absolute top-4 right-4 bg-slate-950/90 backdrop-blur-md border border-sky-500/30 px-3.5 py-1.5 rounded-lg flex items-center gap-1.5">
-              <Award className="w-4 h-4 text-sky-400" />
-              <span className="text-[10px] font-bold text-white tracking-wider uppercase">Gloss Armor Certified</span>
+            <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md border border-brand-primary/20 px-3.5 py-1.5 rounded-lg flex items-center gap-1.5">
+              <Award className="w-4 h-4 text-brand-primary" />
+              <span className="text-[10px] font-bold text-brand-primary tracking-wider uppercase">Gloss Armor Certified</span>
             </div>
           </motion.div>
 
@@ -174,24 +180,24 @@ export default function Hero({ onCtaclick, onExploreServices }: HeroProps) {
           <motion.div
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute -bottom-6 -left-6 bg-slate-900/90 backdrop-blur-md border border-slate-800 p-4 rounded-xl shadow-xl flex items-center gap-3.5 max-w-[200px]"
+            className="absolute -bottom-6 -left-6 bg-brand-card/95 backdrop-blur-md border border-slate-200/80 p-4 rounded-xl shadow-xl flex items-center gap-3.5 max-w-[200px]"
           >
             <span className="text-2xl">🧼</span>
-            <div className="space-y-0.5">
-              <span className="text-xs font-extrabold text-white block">Active Foam wash</span>
-              <span className="text-[10px] text-slate-400 block">Thick dirt release system</span>
+            <div className="space-y-0.5 text-left">
+              <span className="text-xs font-extrabold text-slate-900 block">Active Foam wash</span>
+              <span className="text-[10px] text-slate-500 block">Thick dirt release system</span>
             </div>
           </motion.div>
 
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute -top-6 -right-6 bg-slate-900/90 backdrop-blur-md border border-slate-800 p-4 rounded-xl shadow-xl flex items-center gap-3.5 max-w-[200px]"
+            className="absolute -top-6 -right-6 bg-brand-card/95 backdrop-blur-md border border-slate-200/80 p-4 rounded-xl shadow-xl flex items-center gap-3.5 max-w-[200px]"
           >
             <span className="text-2xl">💧</span>
-            <div className="space-y-0.5">
-              <span className="text-xs font-extrabold text-white block">Hydrophobic coat</span>
-              <span className="text-[10px] text-slate-400 block">Water repelling layers</span>
+            <div className="space-y-0.5 text-left">
+              <span className="text-xs font-extrabold text-slate-900 block">Hydrophobic coat</span>
+              <span className="text-[10px] text-slate-500 block">Water repelling layers</span>
             </div>
           </motion.div>
         </div>

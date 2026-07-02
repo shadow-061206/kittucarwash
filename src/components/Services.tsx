@@ -63,9 +63,12 @@ export default function Services({ onSelectPackage }: ServicesProps) {
             className="mt-8 inline-flex p-1.5 bg-slate-100 rounded-2xl border border-slate-200 shadow-inner max-w-full overflow-x-auto"
           >
             {vehicles.map((v) => (
-              <button
+              <motion.button
                 key={v.id}
                 onClick={() => setSelectedVehicle(v.id)}
+                whileHover={{ scale: 1.05, y: -1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                 className={`flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all shrink-0 ${
                   selectedVehicle === v.id
                     ? 'bg-white text-sky-600 shadow-md border-b-2 border-sky-500'
@@ -74,7 +77,7 @@ export default function Services({ onSelectPackage }: ServicesProps) {
               >
                 <span className="text-lg">{v.icon}</span>
                 <span>{v.label}</span>
-              </button>
+              </motion.button>
             ))}
           </motion.div>
         </div>
@@ -149,17 +152,20 @@ export default function Services({ onSelectPackage }: ServicesProps) {
 
                 {/* Book Action */}
                 <div className="mt-8 pt-4 border-t border-slate-100">
-                  <button
+                  <motion.button
                     onClick={() => onSelectPackage(pkg.id, selectedVehicle)}
+                    whileHover={{ scale: 1.03, y: -2 }}
+                    whileTap={{ scale: 0.97 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                     className={`w-full py-3 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all ${
                       pkg.popular
-                        ? 'bg-sky-500 text-white hover:bg-sky-600 shadow-md shadow-sky-500/15 active:scale-95'
-                        : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 active:scale-95'
+                        ? 'bg-sky-500 text-white hover:bg-sky-600 shadow-md shadow-sky-500/15'
+                        : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200'
                     }`}
                   >
                     <span>Schedule Booking</span>
                     <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </motion.button>
                 </div>
               </motion.div>
             );

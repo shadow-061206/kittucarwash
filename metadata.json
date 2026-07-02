@@ -1,0 +1,6 @@
+{
+  "name": "Kittu Car Washing",
+  "description": "Premium local car washing, detailing, and scheduling services for Kittu Car Washing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

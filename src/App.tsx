@@ -92,11 +92,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 font-sans text-slate-800 antialiased selection:bg-sky-500 selection:text-white relative">
+    <div className="min-h-screen bg-brand-bg font-sans text-brand-text antialiased selection:bg-brand-secondary selection:text-white relative">
       {/* Interactive Global Halftone Trail Background */}
       <HalftoneTrail
         cellSize={12}
-        color="rgba(56, 189, 248, 0.22)"
+        color="rgba(15, 76, 129, 0.15)"
         decay={0.96}
         brushSize={0.06}
         hoverBrushSize={0.02}
@@ -107,7 +107,7 @@ export default function App() {
       />
 
       {/* 1. Header Navbar */}
-      <header className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
           {/* Logo */}
           <a
@@ -118,51 +118,51 @@ export default function App() {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-400 to-blue-600 flex items-center justify-center text-white shadow-md shadow-sky-500/20 group-hover:scale-110 transition-transform">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center text-white shadow-md shadow-brand-primary/20 group-hover:scale-110 transition-transform">
               <Car className="w-5.5 h-5.5" />
             </div>
             <div>
-              <span className="font-display font-extrabold text-white text-lg tracking-tight block">
+              <span className="font-display font-extrabold text-brand-text text-lg tracking-tight block">
                 Kittu Car Washing
               </span>
-              <span className="text-[10px] text-sky-400 font-semibold tracking-wider uppercase block">
+              <span className="text-[10px] text-brand-primary font-semibold tracking-wider uppercase block">
                 Premium Detailing Station
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
             <button
               onClick={() => scrollToSection('services-showcase')}
-              className="hover:text-white transition-colors cursor-pointer"
+              className="hover:text-brand-primary transition-colors cursor-pointer"
             >
               Services
             </button>
             <button
               onClick={() => scrollToSection('interactive-reveal')}
-              className="hover:text-white transition-colors cursor-pointer"
+              className="hover:text-brand-primary transition-colors cursor-pointer"
             >
               The Magic Slider
             </button>
             <button
               onClick={() => scrollToSection('washed-gallery')}
-              className="hover:text-white transition-colors cursor-pointer"
+              className="hover:text-brand-primary transition-colors cursor-pointer"
             >
               Recent Washes
             </button>
             <button
               onClick={() => scrollToSection('booking-workspace')}
-              className="hover:text-white transition-colors cursor-pointer flex items-center gap-1.5"
+              className="hover:text-brand-primary transition-colors cursor-pointer flex items-center gap-1.5"
             >
               <span>Scheduler</span>
               {activeBookingsCount > 0 && (
-                <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-brand-cta animate-pulse" />
               )}
             </button>
             <button
               onClick={() => scrollToSection('location-details')}
-              className="hover:text-white transition-colors cursor-pointer"
+              className="hover:text-brand-primary transition-colors cursor-pointer"
             >
               Contact & Hours
             </button>
@@ -170,32 +170,38 @@ export default function App() {
 
           {/* User Booking Hub Actions */}
           <div className="flex items-center gap-3">
-            <button
+            <motion.button
               onClick={() => {
                 setBookingTab('my-bookings');
                 scrollToSection('booking-workspace');
               }}
-              className="relative px-3 py-1.5 rounded-lg border border-slate-700 hover:border-slate-500 hover:bg-slate-900 text-xs font-extrabold text-slate-300 hover:text-white transition flex items-center gap-1.5"
+              whileHover={{ scale: 1.05, y: -1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+              className="relative px-3 py-1.5 rounded-lg border border-slate-200 hover:border-slate-300 hover:bg-slate-100 text-xs font-extrabold text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5"
             >
               <span>My Ticket</span>
               {activeBookingsCount > 0 ? (
-                <span className="bg-sky-500 text-white text-[10px] font-black h-5 w-5 rounded-full flex items-center justify-center shadow-sm">
+                <span className="bg-brand-cta text-white text-[10px] font-black h-5 w-5 rounded-full flex items-center justify-center shadow-sm">
                   {activeBookingsCount}
                 </span>
               ) : (
-                <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
               )}
-            </button>
+            </motion.button>
 
-            <button
+            <motion.button
               onClick={() => {
                 setBookingTab('schedule');
                 scrollToSection('booking-workspace');
               }}
-              className="px-4.5 py-2.5 rounded-lg bg-sky-500 hover:bg-sky-600 text-white text-xs font-black tracking-wide shadow-md shadow-sky-500/15 active:scale-95 transition cursor-pointer"
+              whileHover={{ scale: 1.05, y: -1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+              className="px-4.5 py-2.5 rounded-lg bg-brand-cta hover:bg-[#ea580c] text-white text-xs font-black tracking-wide shadow-md shadow-brand-cta/20 active:scale-95 transition cursor-pointer"
             >
               Book Wash
-            </button>
+            </motion.button>
           </div>
         </div>
       </header>
@@ -216,51 +222,57 @@ export default function App() {
       <BeforeAfterSlider />
 
       {/* 5. Booking Workspace (Scheduler & Active Ticket Panel) */}
-      <section className="py-20 px-4 bg-slate-900/50 border-t border-b border-slate-800 relative" id="booking-workspace">
+      <section className="py-20 px-4 bg-brand-bg border-t border-b border-slate-200 relative" id="booking-workspace">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none overflow-hidden">
-          <div className="absolute top-1/4 -right-12 w-64 h-64 bg-sky-500/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 -left-12 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 -right-12 w-64 h-64 bg-brand-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 -left-12 w-64 h-64 bg-brand-secondary/5 rounded-full blur-3xl" />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center max-w-xl mx-auto mb-10">
-            <span className="px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 text-xs font-semibold uppercase tracking-wider mb-3.5 inline-block">
+            <span className="px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-semibold uppercase tracking-wider mb-3.5 inline-block">
               Quick Scheduling Desk
             </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-950 tracking-tight">
               Reserve Your Priority Slot
             </h2>
-            <p className="text-sm text-slate-400 mt-2">
+            <p className="text-sm text-slate-600 mt-2">
               Skip standard drive-in queues. Book a custom slot, choose your parameters, and pay at the counter only after service satisfaction!
             </p>
 
             {/* Toggle Switcher Pills */}
-            <div className="mt-8 inline-flex p-1 bg-slate-950 border border-slate-800 rounded-xl">
-              <button
+            <div className="mt-8 inline-flex p-1 bg-slate-100 border border-slate-200 rounded-xl">
+              <motion.button
                 onClick={() => setBookingTab('schedule')}
-                className={`px-6 py-2.5 rounded-lg text-xs font-bold transition ${
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                className={`px-6 py-2.5 rounded-lg text-xs font-bold transition cursor-pointer ${
                   bookingTab === 'schedule'
-                    ? 'bg-sky-500 text-white shadow-md'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-brand-primary text-white shadow-md'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 Schedule New Wash
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 onClick={() => setBookingTab('my-bookings')}
-                className={`px-6 py-2.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 ${
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                className={`px-6 py-2.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
                   bookingTab === 'my-bookings'
-                    ? 'bg-sky-500 text-white shadow-md'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-brand-primary text-white shadow-md'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 <span>My Appointments</span>
                 {activeBookingsCount > 0 && (
-                  <span className="bg-slate-800 text-sky-400 font-extrabold px-1.5 py-0.5 rounded text-[10px]">
+                  <span className="bg-brand-cta text-white font-extrabold px-1.5 py-0.5 rounded text-[10px]">
                     {activeBookingsCount}
                   </span>
                 )}
-              </button>
+              </motion.button>
             </div>
           </div>
 
@@ -350,13 +362,13 @@ export default function App() {
       </section>
 
       {/* 9. Footer Section */}
-      <footer className="bg-slate-950 text-white pt-16 pb-8 border-t border-slate-800">
+      <footer className="bg-brand-footer text-white pt-16 pb-8 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
             {/* Branding Column */}
             <div className="space-y-4 md:col-span-1">
               <div className="flex items-center gap-2">
-                <div className="w-9 h-9 rounded-lg bg-sky-500 flex items-center justify-center text-white">
+                <div className="w-9 h-9 rounded-lg bg-brand-primary flex items-center justify-center text-white">
                   <Car className="w-5 h-5" />
                 </div>
                 <span className="font-display font-extrabold text-white text-base tracking-tight">

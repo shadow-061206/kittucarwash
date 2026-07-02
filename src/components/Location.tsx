@@ -40,7 +40,7 @@ export default function Location() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="px-3.5 py-1.5 rounded-full bg-sky-500/10 text-sky-600 text-xs font-semibold tracking-wider uppercase mb-3 inline-block"
+            className="px-3.5 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-semibold tracking-wider uppercase mb-3 inline-block"
           >
             Find Our Station
           </motion.span>
@@ -87,7 +87,7 @@ export default function Location() {
                   </div>
                 </div>
                 <div className="bg-slate-50 p-3 rounded-xl border border-slate-100">
-                  <Clock className="w-6 h-6 text-sky-500" />
+                  <Clock className="w-6 h-6 text-brand-secondary" />
                 </div>
               </div>
               <p className="mt-3 text-xs text-slate-500 italic">
@@ -98,15 +98,18 @@ export default function Location() {
             {/* Address Details Card */}
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 space-y-6">
               <div className="flex gap-4">
-                <div className="bg-sky-50 p-3.5 rounded-xl text-sky-600 h-12 w-12 flex items-center justify-center shrink-0">
+                <div className="bg-sky-50 p-3.5 rounded-xl text-brand-primary h-12 w-12 flex items-center justify-center shrink-0">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div className="space-y-2 flex-1">
                   <h3 className="font-bold text-slate-900 text-base">Physical Address</h3>
                   <p className="text-slate-600 text-sm leading-relaxed">{BUSINESS_INFO.address}</p>
                   <div className="flex flex-wrap gap-2 pt-2">
-                    <button
+                    <motion.button
                       onClick={copyAddress}
+                      whileHover={{ scale: 1.05, y: -1 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-900 text-xs font-semibold transition-colors border border-slate-200"
                     >
                       {copied ? (
@@ -120,17 +123,20 @@ export default function Location() {
                           <span>Copy Address</span>
                         </>
                       )}
-                    </button>
+                    </motion.button>
 
-                    <a
+                    <motion.a
                       href={`https://maps.google.com/?q=${encodeURIComponent(BUSINESS_INFO.address)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-sky-500 hover:bg-sky-600 text-white text-xs font-semibold transition-all shadow-sm shadow-sky-500/10"
+                      whileHover={{ scale: 1.05, y: -1 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-primary hover:bg-[#0b3c66] text-white text-xs font-semibold transition-all shadow-sm shadow-brand-primary/10"
                     >
                       <Navigation className="w-3.5 h-3.5" />
                       <span>Get Driving Directions</span>
-                    </a>
+                    </motion.a>
                   </div>
                 </div>
               </div>
@@ -138,7 +144,7 @@ export default function Location() {
               <hr className="border-slate-100" />
 
               <div className="flex gap-4">
-                <div className="bg-sky-50 p-3.5 rounded-xl text-sky-600 h-12 w-12 flex items-center justify-center shrink-0">
+                <div className="bg-sky-50 p-3.5 rounded-xl text-brand-primary h-12 w-12 flex items-center justify-center shrink-0">
                   <Clock className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
@@ -152,7 +158,7 @@ export default function Location() {
                       <span className="font-medium text-slate-500">Sat - Sun:</span>
                       <span>{BUSINESS_INFO.hours.weekends}</span>
                     </p>
-                    <p className="text-xs text-sky-500 font-medium pt-1">
+                    <p className="text-xs text-brand-primary font-medium pt-1">
                       * {BUSINESS_INFO.hours.note}
                     </p>
                   </div>
@@ -162,7 +168,7 @@ export default function Location() {
               <hr className="border-slate-100" />
 
               <div className="flex gap-4">
-                <div className="bg-sky-50 p-3.5 rounded-xl text-sky-600 h-12 w-12 flex items-center justify-center shrink-0">
+                <div className="bg-sky-50 p-3.5 rounded-xl text-brand-primary h-12 w-12 flex items-center justify-center shrink-0">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
@@ -174,12 +180,12 @@ export default function Location() {
             </div>
 
             {/* Quick Tips Box */}
-            <div className="bg-gradient-to-r from-sky-500 to-blue-600 rounded-2xl p-5 text-white shadow-md shadow-sky-500/10">
+            <div className="bg-gradient-to-r from-brand-primary to-brand-secondary rounded-2xl p-5 text-white shadow-md shadow-brand-primary/10">
               <h4 className="font-bold text-sm uppercase tracking-wide flex items-center gap-2 mb-1.5">
                 <Calendar className="w-4.5 h-4.5" />
                 Quick Service Tip
               </h4>
-              <p className="text-xs text-sky-100 leading-relaxed">
+              <p className="text-xs text-white/95 leading-relaxed">
                 Sundays are our peak operational days. We strongly recommend booking your custom slot online between 8:00 AM to 11:30 AM to skip the physical wash queues!
               </p>
             </div>

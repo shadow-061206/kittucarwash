@@ -270,20 +270,26 @@ export default function WashedCarsGallery() {
             {/* Pagination / Dots & Navigation */}
             {filteredPhotos.length > 1 && (
               <div className="flex items-center justify-center gap-5 mt-6 relative z-20">
-                <button
+                <motion.button
                   onClick={handlePrev}
-                  className="w-10 h-10 rounded-full bg-slate-950 border border-slate-800 hover:border-sky-500 hover:bg-slate-900 text-white flex items-center justify-center transition-all shadow-md group active:scale-95 cursor-pointer"
+                  whileHover={{ scale: 1.1, x: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                  className="w-10 h-10 rounded-full bg-slate-950 border border-slate-800 hover:border-sky-500 hover:bg-slate-900 text-white flex items-center justify-center transition-all shadow-md group cursor-pointer"
                   aria-label="Previous washed vehicle"
                 >
                   <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
-                </button>
+                </motion.button>
 
                 {/* Circular indicator dots */}
                 <div className="flex items-center gap-2">
                   {filteredPhotos.map((_, idx) => (
-                    <button
+                    <motion.button
                       key={idx}
                       onClick={() => setActiveIndex(idx)}
+                      whileHover={{ scale: 1.3 }}
+                      whileTap={{ scale: 0.9 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                       className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                         activeIndex === idx 
                           ? 'w-5 bg-sky-500' 
@@ -294,13 +300,16 @@ export default function WashedCarsGallery() {
                   ))}
                 </div>
 
-                <button
+                <motion.button
                   onClick={handleNext}
-                  className="w-10 h-10 rounded-full bg-slate-950 border border-slate-800 hover:border-sky-500 hover:bg-slate-900 text-white flex items-center justify-center transition-all shadow-md group active:scale-95 cursor-pointer"
+                  whileHover={{ scale: 1.1, x: 2 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                  className="w-10 h-10 rounded-full bg-slate-950 border border-slate-800 hover:border-sky-500 hover:bg-slate-900 text-white flex items-center justify-center transition-all shadow-md group cursor-pointer"
                   aria-label="Next washed vehicle"
                 >
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-                </button>
+                </motion.button>
               </div>
             )}
           </div>
@@ -397,16 +406,19 @@ export default function WashedCarsGallery() {
                     </div>
                   </div>
 
-                  <button
+                  <motion.button
                     onClick={() => {
                       setSelectedPhoto(null);
                       const el = document.getElementById('booking-workspace');
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="w-full py-3 rounded-xl bg-gradient-to-r from-sky-400 to-blue-600 hover:from-sky-500 hover:to-blue-700 text-white font-extrabold text-xs tracking-wider uppercase transition-all shadow-md shadow-sky-500/20 active:scale-[0.98] cursor-pointer"
+                    whileHover={{ scale: 1.03, y: -2 }}
+                    whileTap={{ scale: 0.97 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                    className="w-full py-3 rounded-xl bg-gradient-to-r from-sky-400 to-blue-600 hover:from-sky-500 hover:to-blue-700 text-white font-extrabold text-xs tracking-wider uppercase transition-all shadow-md shadow-sky-500/20 cursor-pointer"
                   >
                     Schedule a Wash Like This
-                  </button>
+                  </motion.button>
                 </div>
 
               </div>

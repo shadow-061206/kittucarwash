@@ -106,13 +106,16 @@ export default function MyBookings({ refreshTrigger, onSelectBookingTab }: MyBoo
             {bookings.length}
           </span>
         </h3>
-        <button
+        <motion.button
           onClick={fetchBookings}
+          whileHover={{ rotate: 180, scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: 'spring', stiffness: 200, damping: 10 }}
           className="p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-50 transition-colors border border-slate-200"
           title="Refresh List"
         >
           <RefreshCw className="w-4 h-4" />
-        </button>
+        </motion.button>
       </div>
 
       <div className="space-y-4">
@@ -282,32 +285,41 @@ export default function MyBookings({ refreshTrigger, onSelectBookingTab }: MyBoo
                       {/* Action buttons inside expanded area */}
                       <div className="flex flex-wrap justify-end gap-3 pt-2 border-t border-slate-100">
                         {!isCancelled && (
-                          <a
+                          <motion.a
                             href={getWhatsAppLink(booking)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold transition-all shadow-md hover:scale-[1.01] active:scale-95 cursor-pointer"
+                            whileHover={{ scale: 1.04, y: -1 }}
+                            whileTap={{ scale: 0.96 }}
+                            transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold transition-all shadow-md cursor-pointer"
                           >
                             <span>Share on WhatsApp</span>
                             <span className="text-sm">💬</span>
-                          </a>
+                          </motion.a>
                         )}
                         {isCancelled ? (
-                          <button
+                          <motion.button
                             onClick={() => deleteBooking(booking.id)}
+                            whileHover={{ scale: 1.04, y: -1 }}
+                            whileTap={{ scale: 0.96 }}
+                            transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-slate-500 hover:text-rose-600 hover:bg-rose-50 text-xs font-bold transition-all border border-slate-200"
                           >
                             <Trash2 className="w-4 h-4" />
                             <span>Remove Log</span>
-                          </button>
+                          </motion.button>
                         ) : (
-                          <button
+                          <motion.button
                             onClick={() => cancelBooking(booking.id)}
-                            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs font-bold transition-all border border-rose-100 active:scale-95"
+                            whileHover={{ scale: 1.04, y: -1 }}
+                            whileTap={{ scale: 0.96 }}
+                            transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs font-bold transition-all border border-rose-100"
                           >
                             <XCircle className="w-4 h-4" />
                             <span>Cancel Service Appointment</span>
-                          </button>
+                          </motion.button>
                         )}
                       </div>
                     </div>

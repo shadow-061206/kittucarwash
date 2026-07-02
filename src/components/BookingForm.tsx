@@ -226,10 +226,13 @@ export default function BookingForm({
                     const isSelected = vehicleType === key;
                     const icon = key === 'bike' ? '🏍️' : key === 'hatchback' ? '🚗' : key === 'sedan' ? '🚘' : '🚙';
                     return (
-                      <button
+                      <motion.button
                         key={key}
                         type="button"
                         onClick={() => setVehicleType(key as VehicleType)}
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                         className={`flex flex-col items-center justify-center p-3 rounded-xl border text-center transition-all ${
                           isSelected
                             ? 'border-sky-500 bg-sky-50 text-sky-600 font-bold ring-1 ring-sky-500/20'
@@ -238,7 +241,7 @@ export default function BookingForm({
                       >
                         <span className="text-2xl mb-1">{icon}</span>
                         <span className="text-xs tracking-tight line-clamp-1">{label.split(' ')[0]}</span>
-                      </button>
+                      </motion.button>
                     );
                   })}
                 </div>
@@ -254,10 +257,13 @@ export default function BookingForm({
                     const isSelected = packageId === pkg.id;
                     const price = pkg.basePrices[vehicleType];
                     return (
-                      <button
+                      <motion.button
                         key={pkg.id}
                         type="button"
                         onClick={() => setPackageId(pkg.id)}
+                        whileHover={{ scale: 1.02, x: 2 }}
+                        whileTap={{ scale: 0.98 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                         className={`flex items-start justify-between p-3.5 rounded-xl border text-left transition-all ${
                           isSelected
                             ? 'border-sky-500 bg-sky-50/50 text-sky-900 font-medium ring-1 ring-sky-500/10'
@@ -275,7 +281,7 @@ export default function BookingForm({
                         <span className="text-sm font-black text-slate-900 bg-white px-2 py-0.5 rounded border border-slate-200">
                           ₹{price}
                         </span>
-                      </button>
+                      </motion.button>
                     );
                   })}
                 </div>
@@ -294,10 +300,13 @@ export default function BookingForm({
                   {next7Days.map((day, idx) => {
                     const isSelected = selectedDateIndex === idx;
                     return (
-                      <button
+                      <motion.button
                         key={idx}
                         type="button"
                         onClick={() => setSelectedDateIndex(idx)}
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                         className={`flex flex-col items-center justify-center p-3 rounded-xl border min-w-[80px] shrink-0 text-center transition-all ${
                           isSelected
                             ? 'border-sky-500 bg-sky-500 text-white font-bold shadow-md shadow-sky-500/10'
@@ -311,7 +320,7 @@ export default function BookingForm({
                         <span className={`text-[9px] font-semibold mt-0.5 ${isSelected ? 'text-sky-100' : 'text-slate-500'}`}>
                           {day.label.split(' ')[1] || day.weekday}
                         </span>
-                      </button>
+                      </motion.button>
                     );
                   })}
                 </div>
@@ -359,10 +368,13 @@ export default function BookingForm({
                     // Mock peak alerts for design realism
                     const isPeak = idx === 1 || idx === 2 || idx === 7;
                     return (
-                      <button
+                      <motion.button
                         key={slot}
                         type="button"
                         onClick={() => setSelectedSlot(slot)}
+                        whileHover={{ scale: 1.04, y: -1 }}
+                        whileTap={{ scale: 0.96 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                         className={`p-2.5 rounded-lg border text-center transition-all relative ${
                           isSelected
                             ? 'border-sky-500 bg-sky-50 text-sky-600 font-bold'
@@ -376,7 +388,7 @@ export default function BookingForm({
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
                           </span>
                         )}
-                      </button>
+                      </motion.button>
                     );
                   })}
                 </div>
@@ -391,10 +403,13 @@ export default function BookingForm({
                   {ADD_ONS.map((option) => {
                     const isChecked = selectedAddOns.includes(option.id);
                     return (
-                      <button
+                      <motion.button
                         key={option.id}
                         type="button"
                         onClick={() => toggleAddOn(option.id)}
+                        whileHover={{ scale: 1.02, y: -1 }}
+                        whileTap={{ scale: 0.98 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                         className={`flex items-start gap-3 p-3 rounded-xl border text-left transition-all ${
                           isChecked
                             ? 'border-sky-500 bg-sky-50/30'
@@ -418,7 +433,7 @@ export default function BookingForm({
                         <span className="text-xs font-extrabold text-slate-700 bg-slate-100 px-1.5 py-0.5 rounded shrink-0">
                           +₹{option.price}
                         </span>
-                      </button>
+                      </motion.button>
                     );
                   })}
                 </div>
@@ -569,10 +584,13 @@ export default function BookingForm({
                 </div>
 
                 {/* Submit Button */}
-                <button
+                <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 px-6 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-extrabold text-base transition-all shadow-lg shadow-sky-500/20 flex items-center justify-center gap-2 disabled:bg-slate-300 disabled:cursor-not-allowed hover:scale-[1.02] active:scale-95 cursor-pointer animate-pulse"
+                  whileHover={!isSubmitting ? { scale: 1.03, y: -2 } : {}}
+                  whileTap={!isSubmitting ? { scale: 0.97 } : {}}
+                  transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                  className="w-full py-4 px-6 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-extrabold text-base transition-all shadow-lg shadow-sky-500/20 flex items-center justify-center gap-2 disabled:bg-slate-300 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>
@@ -585,7 +603,7 @@ export default function BookingForm({
                       <span className="text-lg">💬</span>
                     </>
                   )}
-                </button>
+                </motion.button>
               </div>
             </div>
           </form>
