@@ -208,7 +208,7 @@ export default function BookingForm({
             <div className="lg:col-span-7 space-y-6 lg:max-h-[640px] lg:overflow-y-auto lg:pr-4 form-scrollbar">
               <div>
                 <h3 className="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-sky-500" />
+                  <Sparkles className="w-5 h-5 text-brand-secondary" />
                   Configure Your Detailing appointment
                 </h3>
                 <p className="text-xs text-slate-500 mt-1">
@@ -235,7 +235,7 @@ export default function BookingForm({
                         transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                         className={`flex flex-col items-center justify-center p-3 rounded-xl border text-center transition-all ${
                           isSelected
-                            ? 'border-sky-500 bg-sky-50 text-sky-600 font-bold ring-1 ring-sky-500/20'
+                            ? 'border-brand-secondary bg-blue-50/40 text-brand-secondary font-bold ring-1 ring-brand-secondary/20'
                             : 'border-slate-200 hover:border-slate-300 text-slate-600'
                         }`}
                       >
@@ -266,12 +266,12 @@ export default function BookingForm({
                         transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                         className={`flex items-start justify-between p-3.5 rounded-xl border text-left transition-all ${
                           isSelected
-                            ? 'border-sky-500 bg-sky-50/50 text-sky-900 font-medium ring-1 ring-sky-500/10'
+                            ? 'border-brand-secondary bg-blue-50/20 text-slate-900 font-medium ring-1 ring-brand-secondary/10'
                             : 'border-slate-200 hover:border-slate-300 text-slate-600'
                         }`}
                       >
                         <div className="space-y-1">
-                          <span className={`text-xs font-bold block ${isSelected ? 'text-sky-600' : 'text-slate-800'}`}>
+                          <span className={`text-xs font-bold block ${isSelected ? 'text-brand-secondary' : 'text-slate-800'}`}>
                             {pkg.name}
                           </span>
                           <span className="text-[10px] text-slate-400 block line-clamp-1">
@@ -309,15 +309,15 @@ export default function BookingForm({
                         transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                         className={`flex flex-col items-center justify-center p-3 rounded-xl border min-w-[80px] shrink-0 text-center transition-all ${
                           isSelected
-                            ? 'border-sky-500 bg-sky-500 text-white font-bold shadow-md shadow-sky-500/10'
+                            ? 'border-brand-secondary bg-brand-secondary text-white font-bold shadow-md shadow-brand-secondary/10'
                             : 'border-slate-200 bg-white hover:border-slate-300 text-slate-600'
                         }`}
                       >
-                        <span className={`text-[10px] uppercase font-bold tracking-wider ${isSelected ? 'text-sky-100' : 'text-slate-400'}`}>
+                        <span className={`text-[10px] uppercase font-bold tracking-wider ${isSelected ? 'text-blue-100' : 'text-slate-400'}`}>
                           {day.weekday.substring(0, 3)}
                         </span>
                         <span className="text-sm font-black mt-1 leading-none">{day.label.split(' ')[0]}</span>
-                        <span className={`text-[9px] font-semibold mt-0.5 ${isSelected ? 'text-sky-100' : 'text-slate-500'}`}>
+                        <span className={`text-[9px] font-semibold mt-0.5 ${isSelected ? 'text-blue-100' : 'text-slate-500'}`}>
                           {day.label.split(' ')[1] || day.weekday}
                         </span>
                       </motion.button>
@@ -330,7 +330,7 @@ export default function BookingForm({
                   <button
                     type="button"
                     onClick={() => scrollDates('left')}
-                    className="p-1 rounded text-slate-400 hover:text-sky-500 hover:bg-slate-100 transition-colors cursor-pointer flex items-center justify-center select-none"
+                    className="p-1 rounded text-slate-400 hover:text-brand-secondary hover:bg-slate-100 transition-colors cursor-pointer flex items-center justify-center select-none"
                     aria-label="Scroll left"
                   >
                     <span className="text-[10px] font-bold">◀</span>
@@ -349,7 +349,7 @@ export default function BookingForm({
                   <button
                     type="button"
                     onClick={() => scrollDates('right')}
-                    className="p-1 rounded text-slate-400 hover:text-sky-500 hover:bg-slate-100 transition-colors cursor-pointer flex items-center justify-center select-none"
+                    className="p-1 rounded text-slate-400 hover:text-brand-secondary hover:bg-slate-100 transition-colors cursor-pointer flex items-center justify-center select-none"
                     aria-label="Scroll right"
                   >
                     <span className="text-[10px] font-bold">▶</span>
@@ -377,7 +377,7 @@ export default function BookingForm({
                         transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                         className={`p-2.5 rounded-lg border text-center transition-all relative ${
                           isSelected
-                            ? 'border-sky-500 bg-sky-50 text-sky-600 font-bold'
+                            ? 'border-brand-secondary bg-blue-50/40 text-brand-secondary font-bold'
                             : 'border-slate-200 hover:border-slate-300 text-slate-600 text-xs'
                         }`}
                       >
@@ -412,7 +412,7 @@ export default function BookingForm({
                         transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                         className={`flex items-start gap-3 p-3 rounded-xl border text-left transition-all ${
                           isChecked
-                            ? 'border-sky-500 bg-sky-50/30'
+                            ? 'border-brand-secondary bg-blue-50/10'
                             : 'border-slate-200 hover:border-slate-300'
                         }`}
                       >
@@ -420,7 +420,7 @@ export default function BookingForm({
                           type="checkbox"
                           checked={isChecked}
                           onChange={() => {}} // Controlled by button click
-                          className="mt-1 h-3.5 w-3.5 rounded border-slate-300 text-sky-500 focus:ring-sky-500"
+                          className="mt-1 h-3.5 w-3.5 rounded border-slate-300 text-brand-secondary focus:ring-brand-secondary"
                         />
                         <div className="space-y-0.5 flex-1">
                           <span className="text-xs font-bold text-slate-800 block leading-tight">
@@ -552,7 +552,7 @@ export default function BookingForm({
 
                   <div className="flex justify-between pt-2.5 border-t border-slate-200 text-sm">
                     <span className="text-slate-500 font-medium">Estimated Wash Time:</span>
-                    <span className="font-bold text-sky-600">~{activePackage.durationMinutes} Minutes</span>
+                    <span className="font-bold text-brand-secondary">~{activePackage.durationMinutes} Minutes</span>
                   </div>
 
                   <div className="flex justify-between pt-2.5 border-t border-slate-200 text-xs">
@@ -566,18 +566,18 @@ export default function BookingForm({
                   <div className="pt-4 border-t border-slate-300 flex items-baseline justify-between">
                     <span className="font-extrabold text-slate-800 text-sm">Total to Pay:</span>
                     <div className="text-right">
-                      <span className="text-3xl font-black text-sky-600 tracking-tight">₹{grandTotalPrice}</span>
+                      <span className="text-3xl font-black text-brand-secondary tracking-tight">₹{grandTotalPrice}</span>
                       <span className="text-[10px] text-slate-400 block font-semibold mt-0.5">Price Includes GST</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Pay at Desk Assurance */}
-                <div className="p-3 bg-sky-50 border border-sky-100 rounded-xl text-sky-800 flex items-start gap-2.5 text-xs">
-                  <ShieldCheck className="w-5 h-5 text-sky-500 shrink-0 mt-0.5" />
+                <div className="p-3 bg-blue-50/50 border border-blue-100 rounded-xl text-slate-700 flex items-start gap-2.5 text-xs">
+                  <ShieldCheck className="w-5 h-5 text-brand-secondary shrink-0 mt-0.5" />
                   <div className="space-y-0.5">
-                    <span className="font-bold block">No Pre-Payment Required!</span>
-                    <span className="text-sky-600 leading-normal block">
+                    <span className="font-bold text-slate-900 block">No Pre-Payment Required!</span>
+                    <span className="text-slate-600 leading-normal block">
                       Pay securely at the counter via UPI, Card, or Cash *after* your car wash is fully completed and approved by you!
                     </span>
                   </div>
@@ -590,7 +590,7 @@ export default function BookingForm({
                   whileHover={!isSubmitting ? { scale: 1.03, y: -2 } : {}}
                   whileTap={!isSubmitting ? { scale: 0.97 } : {}}
                   transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-                  className="w-full py-4 px-6 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-extrabold text-base transition-all shadow-lg shadow-sky-500/20 flex items-center justify-center gap-2 disabled:bg-slate-300 disabled:cursor-not-allowed cursor-pointer"
+                  className="w-full py-4 px-6 rounded-xl bg-brand-secondary hover:bg-blue-700 text-white font-extrabold text-base transition-all shadow-lg shadow-brand-secondary/20 flex items-center justify-center gap-2 disabled:bg-slate-300 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>
@@ -664,7 +664,7 @@ export default function BookingForm({
 
                   <div className="pt-3 border-t border-slate-200 flex justify-between items-baseline">
                     <span className="text-xs font-bold text-slate-500">Pay at Counter:</span>
-                    <span className="text-2xl font-black text-sky-600">₹{createdBooking.totalPrice}</span>
+                    <span className="text-2xl font-black text-brand-secondary">₹{createdBooking.totalPrice}</span>
                   </div>
                 </div>
 
@@ -699,7 +699,7 @@ export default function BookingForm({
                   // Invoke parent tab transition if defined
                   onBookingSuccess();
                 }}
-                className="px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-600 text-white text-xs font-extrabold transition-all shadow-md shadow-sky-500/10 active:scale-95"
+                className="px-6 py-3 rounded-xl bg-brand-secondary hover:bg-blue-700 text-white text-xs font-extrabold transition-all shadow-md shadow-brand-secondary/10 active:scale-95"
               >
                 Go to My Bookings
               </button>

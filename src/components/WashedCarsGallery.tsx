@@ -415,7 +415,7 @@ export default function WashedCarsGallery() {
                     whileHover={{ scale: 1.03, y: -2 }}
                     whileTap={{ scale: 0.97 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-                    className="w-full py-3 rounded-xl bg-gradient-to-r from-sky-400 to-blue-600 hover:from-sky-500 hover:to-blue-700 text-white font-extrabold text-xs tracking-wider uppercase transition-all shadow-md shadow-sky-500/20 cursor-pointer"
+                    className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-cta hover:to-brand-secondary text-white font-extrabold text-xs tracking-wider uppercase transition-all shadow-md shadow-brand-secondary/20 cursor-pointer"
                   >
                     Schedule a Wash Like This
                   </motion.button>

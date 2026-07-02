@@ -89,7 +89,7 @@ export default function MyBookings({ refreshTrigger, onSelectBookingTab }: MyBoo
         </p>
         <button
           onClick={onSelectBookingTab}
-          className="mt-6 px-6 py-3 rounded-xl bg-sky-500 hover:bg-sky-600 text-white font-bold text-sm transition-all shadow-md shadow-sky-500/10 active:scale-95"
+          className="mt-6 px-6 py-3 rounded-xl bg-brand-secondary hover:bg-blue-700 text-white font-bold text-sm transition-all shadow-md shadow-brand-secondary/10 active:scale-95"
         >
           Book Your First Wash Now
         </button>
@@ -102,7 +102,7 @@ export default function MyBookings({ refreshTrigger, onSelectBookingTab }: MyBoo
       <div className="flex items-center justify-between">
         <h3 className="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
           <span>Active Bookings & History</span>
-          <span className="bg-sky-100 text-sky-600 text-xs font-bold px-2.5 py-1 rounded-full">
+          <span className="bg-brand-secondary/10 text-brand-secondary text-xs font-bold px-2.5 py-1 rounded-full">
             {bookings.length}
           </span>
         </h3>
@@ -130,7 +130,7 @@ export default function MyBookings({ refreshTrigger, onSelectBookingTab }: MyBoo
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               className={`rounded-2xl border transition-all overflow-hidden bg-white shadow-sm ${
-                isCancelled ? 'border-slate-200 opacity-75' : 'border-sky-100 hover:border-sky-200'
+                isCancelled ? 'border-slate-200 opacity-75' : 'border-brand-secondary/10 hover:border-brand-secondary/20'
               }`}
             >
               {/* Card Header Summary */}
@@ -139,7 +139,7 @@ export default function MyBookings({ refreshTrigger, onSelectBookingTab }: MyBoo
                 className="p-5 flex flex-wrap items-center justify-between gap-4 cursor-pointer hover:bg-slate-50/50 select-none"
               >
                 <div className="flex items-center gap-4">
-                  <div className={`p-3 rounded-xl ${isCancelled ? 'bg-slate-100 text-slate-400' : 'bg-sky-50 text-sky-600'}`}>
+                  <div className={`p-3 rounded-xl ${isCancelled ? 'bg-slate-100 text-slate-400' : 'bg-blue-50/50 text-brand-secondary'}`}>
                     <Car className="w-6 h-6" />
                   </div>
                   <div>
@@ -252,7 +252,7 @@ export default function MyBookings({ refreshTrigger, onSelectBookingTab }: MyBoo
 
                             <div className="flex justify-between pt-2.5 border-t border-slate-100 font-extrabold text-base text-slate-900">
                               <span>Grand Total</span>
-                              <span className="text-sky-600">₹{booking.totalPrice}</span>
+                              <span className="text-brand-secondary font-black">₹{booking.totalPrice}</span>
                             </div>
                           </div>
                         </div>
@@ -260,9 +260,9 @@ export default function MyBookings({ refreshTrigger, onSelectBookingTab }: MyBoo
 
                       {/* Ticket Pass design */}
                       {!isCancelled && (
-                        <div className="bg-sky-50 rounded-2xl p-4 border border-dashed border-sky-200 flex flex-wrap items-center justify-between gap-4">
+                        <div className="bg-blue-50/50 rounded-2xl p-4 border border-dashed border-blue-200 flex flex-wrap items-center justify-between gap-4">
                           <div className="space-y-1">
-                            <span className="text-[10px] font-bold text-sky-600 uppercase tracking-wider">Gate Checkpoint Ticket</span>
+                            <span className="text-[10px] font-bold text-brand-secondary uppercase tracking-wider">Gate Checkpoint Ticket</span>
                             <h5 className="font-mono text-lg font-black text-slate-800 tracking-wider">KITTU-{booking.id.toUpperCase()}</h5>
                             <p className="text-xs text-slate-500 leading-relaxed">
                               Show this ticket ID or QR code to our desk staff when driving into our station to initiate work instantly.

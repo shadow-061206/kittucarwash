@@ -4,20 +4,35 @@
 @theme {
   --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-display: "Space Grotesk", sans-serif;
-  --color-brand-primary: #0F4C81;
-  --color-brand-secondary: #38BDF8;
-  --color-brand-bg: #F8FAFC;
-  --color-brand-cta: #F97316;
-  --color-brand-text: #1F2937;
+  --color-brand-primary: #00B4D8;
+  --color-brand-secondary: #023E8A;
+  --color-brand-bg: #F0F9FF;
+  --color-brand-cta: #90E0EF;
+  --color-brand-text: #023E8A;
   --color-brand-card: #FFFFFF;
-  --color-brand-footer: #0F172A;
+  --color-brand-footer: #023E8A;
+
+  --animate-shine: shine 4s ease-in-out infinite;
+  --animate-wave-move: wave-move 12s linear infinite;
+
+  @keyframes shine {
+    0% { transform: translateX(-150%) skewX(-25deg); }
+    12% { transform: translateX(150%) skewX(-25deg); }
+    100% { transform: translateX(150%) skewX(-25deg); }
+  }
+
+  @keyframes wave-move {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-25%); }
+    100% { transform: translateX(0); }
+  }
 }
 
 /* Ensure body uses the premium sans font by default */
 html, body {
   font-family: "Plus Jakarta Sans", sans-serif;
-  background-color: #F8FAFC; /* Custom Light gray background */
-  color: #1F2937; /* Dark charcoal text */
+  background-color: #F0F9FF; /* Very Light Blue background */
+  color: #023E8A; /* Deep Navy text for luxury high-contrast feel */
 }
 
 /* Typography styles with distinct 1.5:1 ratio scale hierarchy */

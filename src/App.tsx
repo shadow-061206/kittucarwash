@@ -24,13 +24,11 @@ import { BUSINESS_INFO, FAQS } from './data';
 import { VehicleType } from './types';
 import Hero from './components/Hero';
 import Services from './components/Services';
-import BeforeAfterSlider from './components/BeforeAfterSlider';
 import BookingForm from './components/BookingForm';
 import MyBookings from './components/MyBookings';
 import Location from './components/Location';
 import WashedCarsGallery from './components/WashedCarsGallery';
 import { ReviewCarousel3D } from './components/ReviewCarousel3D';
-import HalftoneTrail from './components/ui/halftone-trail';
 
 export default function App() {
   // Pre-selection states to link Services to Booking Form
@@ -93,19 +91,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-brand-bg font-sans text-brand-text antialiased selection:bg-brand-secondary selection:text-white relative">
-      {/* Interactive Global Halftone Trail Background */}
-      <HalftoneTrail
-        cellSize={12}
-        color="rgba(15, 76, 129, 0.15)"
-        decay={0.96}
-        brushSize={0.06}
-        hoverBrushSize={0.02}
-        opacity={0.7}
-        hoverOpacity={0.15}
-        speedScale={35.0}
-        className="fixed inset-0 pointer-events-none z-40"
-      />
-
       {/* 1. Header Navbar */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
@@ -138,12 +123,6 @@ export default function App() {
               className="hover:text-brand-primary transition-colors cursor-pointer"
             >
               Services
-            </button>
-            <button
-              onClick={() => scrollToSection('interactive-reveal')}
-              className="hover:text-brand-primary transition-colors cursor-pointer"
-            >
-              The Magic Slider
             </button>
             <button
               onClick={() => scrollToSection('washed-gallery')}
@@ -182,7 +161,7 @@ export default function App() {
             >
               <span>My Ticket</span>
               {activeBookingsCount > 0 ? (
-                <span className="bg-brand-cta text-white text-[10px] font-black h-5 w-5 rounded-full flex items-center justify-center shadow-sm">
+                <span className="bg-brand-cta text-brand-secondary text-[10px] font-black h-5 w-5 rounded-full flex items-center justify-center shadow-sm">
                   {activeBookingsCount}
                 </span>
               ) : (
@@ -198,7 +177,7 @@ export default function App() {
               whileHover={{ scale: 1.05, y: -1 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-              className="px-4.5 py-2.5 rounded-lg bg-brand-cta hover:bg-[#ea580c] text-white text-xs font-black tracking-wide shadow-md shadow-brand-cta/20 active:scale-95 transition cursor-pointer"
+              className="px-4.5 py-2.5 rounded-lg bg-brand-cta hover:bg-[#00B4D8] text-brand-secondary text-xs font-black tracking-wide shadow-md shadow-brand-cta/20 active:scale-95 transition cursor-pointer"
             >
               Book Wash
             </motion.button>
@@ -217,9 +196,6 @@ export default function App() {
 
       {/* 3. Services Section */}
       <Services onSelectPackage={handleSelectPackageAndBook} />
-
-      {/* 4. Interactive Reveal Slider Section */}
-      <BeforeAfterSlider />
 
       {/* 5. Booking Workspace (Scheduler & Active Ticket Panel) */}
       <section className="py-20 px-4 bg-brand-bg border-t border-b border-slate-200 relative" id="booking-workspace">
@@ -268,7 +244,7 @@ export default function App() {
               >
                 <span>My Appointments</span>
                 {activeBookingsCount > 0 && (
-                  <span className="bg-brand-cta text-white font-extrabold px-1.5 py-0.5 rounded text-[10px]">
+                  <span className="bg-brand-cta text-brand-secondary font-extrabold px-1.5 py-0.5 rounded text-[10px]">
                     {activeBookingsCount}
                   </span>
                 )}
@@ -400,14 +376,6 @@ export default function App() {
                     className="hover:text-white transition-colors cursor-pointer"
                   >
                     Detailing Services
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => scrollToSection('interactive-reveal')}
-                    className="hover:text-white transition-colors cursor-pointer"
-                  >
-                    Before/After Slider
                   </button>
                 </li>
                 <li>
