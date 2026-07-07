@@ -93,24 +93,24 @@ export default function App() {
     <div className="min-h-screen bg-brand-bg font-sans text-brand-text antialiased selection:bg-brand-secondary selection:text-white relative">
       {/* 1. Header Navbar */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-2">
           {/* Logo */}
           <a
             href="#"
-            className="flex items-center gap-2.5 group"
+            className="flex items-center gap-2 sm:gap-2.5 group min-w-0 shrink-0"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center text-white shadow-md shadow-brand-primary/20 group-hover:scale-110 transition-transform">
-              <Car className="w-5.5 h-5.5" />
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-brand-primary to-brand-secondary flex items-center justify-center text-white shadow-md shadow-brand-primary/20 group-hover:scale-110 transition-transform shrink-0">
+              <Car className="w-5 h-5 sm:w-5.5 sm:h-5.5" />
             </div>
-            <div>
-              <span className="font-display font-extrabold text-brand-text text-lg tracking-tight block">
+            <div className="min-w-0 flex flex-col justify-center">
+              <span className="font-display font-extrabold text-brand-text text-sm sm:text-base md:text-lg tracking-tight block truncate whitespace-nowrap">
                 Kittu Car Washing
               </span>
-              <span className="text-[10px] text-brand-primary font-semibold tracking-wider uppercase block">
+              <span className="text-[9px] sm:text-[10px] text-brand-primary font-bold tracking-wider uppercase block truncate max-w-[120px] xs:max-w-none">
                 Premium Detailing Station
               </span>
             </div>
@@ -148,7 +148,7 @@ export default function App() {
           </nav>
 
           {/* User Booking Hub Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             <motion.button
               onClick={() => {
                 setBookingTab('my-bookings');
@@ -157,15 +157,15 @@ export default function App() {
               whileHover={{ scale: 1.05, y: -1 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-              className="relative px-3 py-1.5 rounded-lg border border-slate-200 hover:border-slate-300 hover:bg-slate-100 text-xs font-extrabold text-slate-600 hover:text-slate-900 transition flex items-center gap-1.5"
+              className="relative px-2 py-1.5 sm:px-3 sm:py-1.5 rounded-lg border border-slate-200 hover:border-slate-300 hover:bg-slate-100 text-[10px] sm:text-xs font-extrabold text-slate-600 hover:text-slate-900 transition flex items-center gap-1 sm:gap-1.5"
             >
               <span>My Ticket</span>
               {activeBookingsCount > 0 ? (
-                <span className="bg-brand-cta text-brand-secondary text-[10px] font-black h-5 w-5 rounded-full flex items-center justify-center shadow-sm">
+                <span className="bg-brand-cta text-brand-secondary text-[9px] sm:text-[10px] font-black h-4.5 w-4.5 sm:h-5 sm:w-5 rounded-full flex items-center justify-center shadow-sm">
                   {activeBookingsCount}
                 </span>
               ) : (
-                <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
+                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-slate-300" />
               )}
             </motion.button>
 
@@ -177,7 +177,7 @@ export default function App() {
               whileHover={{ scale: 1.05, y: -1 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-              className="px-4.5 py-2.5 rounded-lg bg-brand-cta hover:bg-[#00B4D8] text-brand-secondary text-xs font-black tracking-wide shadow-md shadow-brand-cta/20 active:scale-95 transition cursor-pointer"
+              className="px-2.5 py-1.5 sm:px-4.5 sm:py-2.5 rounded-lg bg-brand-cta hover:bg-[#00B4D8] text-brand-secondary text-[10px] sm:text-xs font-black tracking-wide shadow-md shadow-brand-cta/20 active:scale-95 transition cursor-pointer whitespace-nowrap"
             >
               Book Wash
             </motion.button>
@@ -352,9 +352,16 @@ export default function App() {
                 </span>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Bengaluru's premier choice for hyper-detailed car washes, foam cleanings, steam sanitizations, and ceramic gloss protection plans.
+                Patna's premier choice for hyper-detailed car washes, foam cleanings, steam sanitizations, and ceramic gloss protection plans.
               </p>
-              <div className="flex items-center gap-3 pt-2 text-slate-400">
+              <div className="text-xs text-slate-400 flex items-start gap-2 pt-1 bg-slate-900/50 rounded-xl border border-slate-800 p-2.5">
+                <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
+                <span className="leading-normal">
+                  <strong className="text-slate-300 block mb-0.5 font-bold">Station Address:</strong>
+                  {BUSINESS_INFO.address}
+                </span>
+              </div>
+              <div className="flex items-center gap-3 pt-1 text-slate-400">
                 <a href="#" className="hover:text-sky-400 transition-colors">
                   <Facebook className="w-5 h-5" />
                 </a>

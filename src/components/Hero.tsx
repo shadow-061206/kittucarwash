@@ -125,15 +125,27 @@ export default function Hero({ onCtaclick, onExploreServices }: HeroProps) {
       <div className="max-w-7xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Texts Info Left */}
         <div className="lg:col-span-7 space-y-6 lg:space-y-8 text-left">
-          <motion.div
-            initial={{ opacity: 0, y: -25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 border border-white/30 text-white text-xs font-semibold uppercase tracking-wider top-rating-tag"
-          >
-            <Sparkles className="w-3.5 h-3.5 animate-spin" />
-            <span>Trusted Car Wash in Patna</span>
-          </motion.div>
+          <div className="flex flex-wrap items-center gap-3">
+            <motion.div
+              initial={{ opacity: 0, y: -25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 border border-white/30 text-white text-xs font-semibold uppercase tracking-wider top-rating-tag"
+            >
+              <Sparkles className="w-3.5 h-3.5 animate-spin" />
+              <span>Trusted Car Wash in Patna</span>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: -25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-yellow-400 border border-yellow-300 text-slate-900 text-xs font-extrabold uppercase tracking-wider shadow-lg shadow-yellow-400/25 animate-pulse"
+            >
+              <Calendar className="w-3.5 h-3.5 shrink-0" />
+              <span>📅 Open Sundays (7 AM - 10 PM)</span>
+            </motion.div>
+          </div>
 
           <div className="space-y-4">
             <motion.h2
@@ -244,8 +256,8 @@ export default function Hero({ onCtaclick, onExploreServices }: HeroProps) {
             {/* Pressure wash spray overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent pointer-events-none z-10" />
             <img
-              src="https://pixabay.com/images/download/lusepho-tank-400-8494825_1920.jpg"
-              alt="Gleaming Premium Tank 400 Detailing Kittu Wash Patna"
+              src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&q=80&w=1200"
+              alt="Satisfying Automatic Car Wash with Blue Spinning Brushes and Foam"
               className="w-full h-full object-cover select-none"
               referrerPolicy="no-referrer"
             />

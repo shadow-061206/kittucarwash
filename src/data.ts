@@ -178,7 +178,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Neha Deshmukh',
     vehicle: 'Tata Nexon (Compact SUV)',
     rating: 5,
-    text: 'The deep cabin steam disinfection is incredible. With small kids, hygiene is priority. They sanitized the AC vents, extracted all dirt from the fabric seats, and left zero chemical odor. Highly recommended HSR station.',
+    text: 'The deep cabin steam disinfection is incredible. With small kids, hygiene is priority. They sanitized the AC vents, extracted all dirt from the fabric seats, and left zero chemical odor. Highly recommended Patna Kankarbagh station.',
     date: '3 weeks ago',
     avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=120',
   },

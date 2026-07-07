@@ -111,7 +111,7 @@ export function RainBackground({
     }
 
     setRaindrops(drops)
-  }, [intensity, speed, dropSize])
+  }, [intensity, speed, dropSize.min, dropSize.max])
 
   // Lightning effect
   const triggerLightning = useCallback(() => {
@@ -245,7 +245,7 @@ export function RainBackground({
 
       {/* Rain container */}
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute -inset-x-10 -inset-y-10 overflow-hidden"
         style={{
           transform: `rotate(${angle}deg)`,
           transformOrigin: "center center",
@@ -264,7 +264,6 @@ export function RainBackground({
               animationDuration: `${drop.animationDuration}s`,
               animationDelay: `${drop.delay}s`,
               opacity: drop.opacity,
-              top: "-20px",
             }}
           />
         ))}
@@ -276,10 +275,10 @@ export function RainBackground({
       <style>{`
         @keyframes rain-fall {
           0% {
-            transform: translateY(-20px);
+            top: -10%;
           }
           100% {
-            transform: translateY(calc(100vh + 20px));
+            top: 110%;
           }
         }
 

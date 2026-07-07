@@ -82,7 +82,7 @@ const REVIEWS_3D: Review3D[] = [
     vehicle: 'Tata Nexon EV',
     vehicleType: 'Compact SUV',
     rating: 5,
-    text: 'Eco-safe chemical-free foam and deep leather care. With small toddlers, interior hygiene is my absolute priority. They sanitized every corner. Highly recommend HSR station.',
+    text: 'Eco-safe chemical-free foam and deep leather care. With small toddlers, interior hygiene is my absolute priority. They sanitized every corner. Highly recommend Patna Kankarbagh station.',
     date: '1 month ago',
     avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=120',
     carImageUrl: 'https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&q=80&w=800',
@@ -161,7 +161,7 @@ export function ReviewCarousel3D() {
           Pristine Results, Proven Trust
         </h2>
         <p className="mt-4 text-slate-400 text-sm md:text-base max-w-2xl mx-auto">
-          Swipe or drag to spin our interactive 3D wheel. Inspect real customer results with high-definition detailing shots from Patna and HSR Bengaluru.
+          Swipe or drag to spin our interactive 3D wheel. Inspect real customer results with high-definition detailing shots from Patna, Bihar.
         </p>
       </div>
 
